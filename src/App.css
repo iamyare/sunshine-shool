@@ -8,7 +8,7 @@
 }
 
 .animate-scroll {
-    animation: scroll 10s linear infinite;
+    animation: scroll 30s linear infinite;
 }
 
 .animate-scroll:hover {
@@ -24,3 +24,4 @@
 .overflow-x-hidden::-webkit-scrollbar {
     display: none; /* Para Chrome, Safari, y Opera */
 }
+
