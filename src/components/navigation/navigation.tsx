@@ -12,7 +12,7 @@ export default function Navigation() {
 
   useEffect(() => {
     scrollYProgress.onChange(() => {
-      const newClass = scrollYProgress.get() > 0.1 ? 'bg-background/50' : 'bg-background/0'
+      const newClass = scrollYProgress.get() > 0.1 ? 'bg-background/50 group is-active' : 'bg-background/0'
       setHeaderClass(newClass)
     })
   }, [scrollYProgress])
@@ -23,19 +23,19 @@ export default function Navigation() {
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`flex fixed w-screen z-50 items-center justify-between py-4 px-10  backdrop-blur-md transition-colors duration-500 ease-in-out hover:bg-background/50 ${headerClass}`}
+      className={`flex  fixed w-screen z-50 items-center justify-between py-4 px-10  backdrop-blur-md transition-colors duration-500 ease-in-out hover:bg-background/50  ${headerClass}`}
     >
       <div className='flex items-center space-x-2'>
         <Logo className='h-10 w-10' />
-        <span className='text-lg font-medium'>Sunshine School</span>
+        <span className='text-lg font-medium transition-colors duration-300 group-[.is-active]:text-foreground text-primary'>Sunshine School</span>
       </div>
       <nav className='flex items-center'>
         <ul className='flex space-x-10'>
             {
                 NAVIGATION.map((item, index) => (
                     <li key={index} className={
-                        cn('text-foreground hover:text-primary active:text-primary font-medium',
-                        pathname === item.href ? 'text-primary font-semibold' : ''
+                        cn('text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
+                        pathname === item.href ? 'text-muted group-[.is-active]:text-foreground font-semibold' : ''
                         )
                     }>{item.name}</li>
                 ))

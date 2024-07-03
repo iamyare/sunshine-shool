@@ -45,7 +45,7 @@ export default function MainVisual() {
           {ELEMENTS.map((element, index) => (
             <motion.li
               key={index}
-              className='shadow-xl shadow-black/5 '
+              className=' '
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1, transition: { delay: index * 0.1 } }}
               exit={{ y: 20, opacity: 0 }}

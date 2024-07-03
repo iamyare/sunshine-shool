@@ -11,7 +11,7 @@ function App() {
     <main className=' w-screen '>
       <Navigation />
       <section className=' relative overflow-hidden'>
-        <aside className='flex flex-col items-center pt-44 space-y-10 px-4 w-full md:px-0  md:max-w-2xl  mx-auto'>
+        <aside className='flex flex-col items-center pt-32 space-y-10 px-4 w-full md:px-0  md:max-w-2xl  mx-auto'>
           <Tag tag='New' content='Create teams in Organisation' className='' />
 
           <div className='flex flex-col space-y-5  items-center'>
@@ -49,7 +49,7 @@ function App() {
         <div className='absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2  ml-[10%] blur-[200px]  lg:w-[30vw] md:w-[500px] hidden md:block w-[600px]  aspect-video bg-primary/50 -z-10'></div>
         <div className='absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 -ml-[10%] blur-[200px]  lg:w-[30vw] md:w-[500px] hidden md:block w-[600px]  aspect-video bg-secondary/50 -z-10'></div>
       </section>
-      
+
       <Tecnologies />
 
       <section className=' py-10 flex flex-col space-y-5 items-center '>
