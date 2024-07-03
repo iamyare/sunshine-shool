@@ -30,7 +30,7 @@ export default function Navigation() {
         <Logo className='h-10 w-10' />
         <span className='text-lg font-medium transition-colors duration-300 group-[.is-active]:text-foreground text-primary'>Sunshine School</span>
       </div>
-      <nav className='flex items-center'>
+      <nav className=' items-center hidden md:flex'>
         <ul className='flex space-x-10'>
             {
                 NAVIGATION.map((item, index) => (

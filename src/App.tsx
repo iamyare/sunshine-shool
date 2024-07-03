@@ -40,9 +40,8 @@ function App() {
         direction='right'
       />
 
-      <SectionImage className='' />
+      <SectionImage title='Cultura' description='aqui la descri' className='' />
 
-      <section className=' h-screen w-screen'></section>
     </main>
   )
 }
