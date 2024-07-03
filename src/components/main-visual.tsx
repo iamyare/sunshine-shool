@@ -26,7 +26,7 @@ export default function MainVisual() {
     // Función para actualizar las posiciones basadas en el progreso del scroll
     const updatePositions = () => {
       const latest = scrollYProgress.get(); // Obtiene el valor actual del progreso del scroll
-      const newPositionsY = yPositions.map((_, index) => index % 2 === 0 ? latest * 50 : latest * -50);
+      const newPositionsY = yPositions.map((_, index) => index % 2 === 0 ? latest * 100 : latest * -100);
       const newPositionsX = latest * -200;
       setYPositions(newPositionsY);
       setXPositions(newPositionsX);

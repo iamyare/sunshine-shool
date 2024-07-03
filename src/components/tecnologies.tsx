@@ -28,6 +28,7 @@ export default function Tecnologies() {
     <section className="flex flex-col space-y-5 py-10 container">
       <p className='text-center text-muted-foreground'>Tecnologías empleadas</p>
       <div className="overflow-x-hidden relative" ref={scrollRef}>
+        
         <ul className='flex space-x-10 animate-scroll'>
           {items.map((item, index) => (
             <li key={index} className='text-center'>
@@ -35,10 +36,11 @@ export default function Tecnologies() {
             </li>
           ))}
         </ul>
-      <div className=' absolute top-0 left-0 w-[15%] h-full bg-gradient-to-r from-background to-transparent'></div>
+        <div className=' absolute top-0 left-0 w-[15%] h-full bg-gradient-to-r from-background  to-transparent'></div>
       <div className=' absolute top-0 right-0 w-[15%] h-full bg-gradient-to-l from-background to-transparent'></div>
 
       </div>
+
     </section>
   );
 }

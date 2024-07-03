@@ -17,7 +17,7 @@ export default function SectionColums({
     direction === 'left' ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row' 
     
     )}>
-      <aside className='w-full flex flex-col gap-4'>
+      <aside className='w-2/3 flex flex-col gap-4'>
         <Tag content='Hola' className=' bg-muted py-0.5 ' />
         <div className='flex flex-col gap-2'>
           <h2 className='text-4xl font-medium'>{title}</h2>
