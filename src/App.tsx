@@ -7,6 +7,7 @@ import Navigation from './components/navigation/navigation'
 import SectionColums from './components/section-colums'
 import SectionImage from './components/section-image'
 import Tecnologies from './components/tecnologies'
+import Testimonials from './components/testimonials'
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
       <SectionImage title='Cultura' description='aqui la descri' className='' />
 
       <Metrics/>
+
+      <Testimonials />
 
     </main>
   )

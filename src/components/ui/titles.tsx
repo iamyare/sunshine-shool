@@ -58,7 +58,7 @@ export default function Title({
                     <div className='flex flex-col items-center space-y-2'>
                     <h2
                     className={cn(
-                      ' text-3xl text-primary font-medium',
+                      ' text-6xl text-primary font-medium tracking-[-2px]',
                       ClassNameProps?.classNameTitle
                     )}
                   >
