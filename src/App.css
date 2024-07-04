@@ -25,3 +25,13 @@
     display: none; /* Para Chrome, Safari, y Opera */
 }
 
+
+.radial-mask {
+  mask-image: radial-gradient(circle at center, transparent 20%, black 100%);
+  mask-size: cover;
+}
+
+.radial-mask-invert {
+    mask-image: radial-gradient(circle at center, black , transparent 90%);
+    mask-size: cover;
+  }

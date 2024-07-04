@@ -1,6 +1,8 @@
 import './App.css'
 import About from './components/about'
+
 import MainHero from './components/main-hero'
+import Metrics from './components/metrics'
 import Navigation from './components/navigation/navigation'
 import SectionColums from './components/section-colums'
 import SectionImage from './components/section-image'
@@ -31,6 +33,8 @@ function App() {
       />
 
       <SectionImage title='Cultura' description='aqui la descri' className='' />
+
+      <Metrics/>
 
     </main>
   )
