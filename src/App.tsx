@@ -1,5 +1,7 @@
 import './App.css'
 import About from './components/about'
+import Blog from './components/blog'
+import FAQ from './components/faq'
 
 import MainHero from './components/main-hero'
 import Metrics from './components/metrics'
@@ -41,6 +43,10 @@ function App() {
       <Metrics/>
 
       <Testimonials />
+
+      <FAQ />
+
+      <Blog />
 
     </main>
   )
