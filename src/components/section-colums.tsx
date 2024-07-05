@@ -1,7 +1,7 @@
 import { cn } from '../lib/utils'
-import Tag from './tag'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer' // Importa InView
+import Title from './ui/titles'
 
 export default function SectionColums({
   img,
@@ -29,12 +29,8 @@ export default function SectionColums({
             direction === 'left' ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row'
           )}
         >
-          <aside className='w-full md:w-2/3 flex flex-col gap-4'>
-            {tag && <Tag content={tag} className='bg-muted py-0.5' />}
-            <div className='flex flex-col gap-2'>
-              <h2 className='text-4xl font-medium'>{title}</h2>
-              <p className='text-muted-foreground'>{content}</p>
-            </div>
+          <aside className='w-full md:w-2/3 flex flex-col gap-4 '>
+          <Title title={title} description={content} tagContent={tag} ClassNameProps={{classNameTag:'bg-muted', classNameTitle:'text-4xl', classNameContainer:' items-start', classNameContainerText:'items-start'}} />
           </aside>
           <aside className='w-full'>
             <img
