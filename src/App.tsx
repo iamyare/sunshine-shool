@@ -1,15 +1,15 @@
 import './App.css'
-import About from './components/about'
-import Blog from './components/blog'
-import FAQ from './components/faq'
+import About from '@/components/about'
+import Blog from '@/components/blog'
+import FAQ from '@/components/faq'
 
-import MainHero from './components/main-hero'
-import Metrics from './components/metrics'
-import Navigation from './components/navigation/navigation'
-import SectionColums from './components/section-colums'
-import SectionImage from './components/section-image'
-import Tecnologies from './components/tecnologies'
-import Testimonials from './components/testimonials'
+import MainHero from '@/components/main-hero'
+import Metrics from '@/components/metrics'
+import Navigation from '@/components/navigation/navigation'
+import SectionColums from '@/components/section-colums'
+import SectionImage from '@/components/section-image'
+import Tecnologies from '@/components/tecnologies'
+import Testimonials from '@/components/testimonials'
 
 function App() {
   return (

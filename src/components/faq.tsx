@@ -6,7 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '../components/ui/accordion'
+} from '@/components/ui/accordion'
 import { InView } from 'react-intersection-observer'
 
 const FAQS = [
