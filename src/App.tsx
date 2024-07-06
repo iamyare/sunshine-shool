@@ -10,6 +10,7 @@ import SectionColums from '@/components/section-colums'
 import SectionImage from '@/components/section-image'
 import Tecnologies from '@/components/tecnologies'
 import Testimonials from '@/components/testimonials'
+import Footer from './components/footer'
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
       <FAQ />
 
       <Blog />
+
+      <Footer />
 
     </main>
   )

@@ -30,7 +30,7 @@ export default function SectionColums({
           )}
         >
           <aside className='w-full md:w-2/3 flex flex-col gap-4 '>
-          <Title title={title} description={content} tagContent={tag} ClassNameProps={{classNameTag:'bg-muted', classNameTitle:'text-4xl', classNameContainer:' items-start', classNameContainerText:'items-start'}} />
+          <Title title={title} description={content} tagContent={tag} ClassNameProps={{classNameTag:'bg-muted', classNameTitle:'text-4xl', classNameContainer:' items-start', classNameContainerText:'items-start', classNameDescription:' text-start'}} />
           </aside>
           <aside className='w-full'>
             <img

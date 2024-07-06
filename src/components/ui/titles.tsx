@@ -64,7 +64,7 @@ export default function Title({
           >
             <h2
               className={cn(
-                ' text-6xl text-primary font-medium tracking-[-2px]',
+                ' text-6xl text-primary font-medium tracking-[-2px] text-center',
                 ClassNameProps?.classNameTitle
               )}
             >
@@ -72,7 +72,7 @@ export default function Title({
             </h2>
             <p
               className={cn(
-                ' text-muted-foreground',
+                ' text-muted-foreground text-center',
                 ClassNameProps?.classNameDescription
               )}
             >
