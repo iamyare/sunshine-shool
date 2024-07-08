@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useScroll } from 'framer-motion'
-import { Button } from '../ui/button'
 import Logo from '../ui/logo'
 import { NAVIGATION } from './navigation-data'
 import { cn } from '../../lib/utils'
+import ButtonPrimary from '../button-primary'
 
 export default function Navigation() {
   const { scrollYProgress } = useScroll()
@@ -44,7 +44,7 @@ export default function Navigation() {
 
         </ul>
       </nav>
-      <Button>Inscribete</Button>
+      <ButtonPrimary text='Contacto' />
     </motion.header>
   )
 }

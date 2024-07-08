@@ -39,7 +39,11 @@ function App() {
         tag='Visión'
       />
 
-      <SectionImage title='Cultura' description='aqui la descri' className='' />
+      <SectionImage 
+        title='Es Cosa de Halcones' 
+        description='La cultura Sunshine fomenta un ambiente colaborativo y familiar, promoviendo altos valores éticos y un aprendizaje significativo.' 
+        className='' 
+      />
 
       <Metrics/>
 

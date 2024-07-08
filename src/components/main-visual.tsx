@@ -5,16 +5,17 @@ import DivProfile from './div-profile';
 import DivCard from './div-card';
 
 const ELEMENTS = [
-  DivNumbers({ title: 'Hola', content: '820', className: 'bg-[#D8FFD8]' }),
+  DivNumbers({ title: 'Estudiantes', content: '820+', className: 'bg-[#D8FFD8]' }),
   DivCard({ content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Meylin Sarahi', role: 'Teacher' }),
   DivProfile({ name:'Meylin Sarahi', position:'Teacher', img:'https://media.istockphoto.com/id/682897825/es/foto/confident-businesswoman-over-gray-background.jpg?s=612x612&w=0&k=20&c=WSlpnPQfEqYL77qKRBZ49wbUd4Ey6rd1RB1HCNKOusQ='}),
-  DivNumbers({ title: 'Hola', content: '820', className: 'bg-[#D8E8FF]'}),
-  DivCard({content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Meylin Sarahi', role: 'Teacher'}),
-  DivProfile({ name:'Meylin Sarahi', position:'Teacher', img:'https://media.istockphoto.com/id/682897825/es/foto/confident-businesswoman-over-gray-background.jpg?s=612x612&w=0&k=20&c=WSlpnPQfEqYL77qKRBZ49wbUd4Ey6rd1RB1HCNKOusQ='}),
-  DivCard({content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Meylin Sarahi', role: 'Teacher'}),
-  DivNumbers({ title: 'Hola', content: '820', className: 'bg-[#EDD8FF]'}),
-  DivProfile({ name:'Meylin Sarahi', position:'Teacher', img:'https://media.istockphoto.com/id/682897825/es/foto/confident-businesswoman-over-gray-background.jpg?s=612x612&w=0&k=20&c=WSlpnPQfEqYL77qKRBZ49wbUd4Ey6rd1RB1HCNKOusQ='}),
-  DivCard({content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Meylin Sarahi', role: 'Teacher'}),
+  
+  DivNumbers({ title: 'Docentes', content: '40+', className: 'bg-[#FFD8D8]' }),
+  DivCard({ content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Yamir Rodas', role: 'Teacher' }),
+  DivProfile({ name:'Yamir Rodas', position:'Teacher', img:'https://img.freepik.com/foto-gratis/chico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1720396800&semt=sph'}),
+
+  DivNumbers({ title: 'Clases', content: '20+', className: 'bg-[#D8D8FF]' }),
+  DivCard({ content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.', name: 'Yamir Rodas', role: 'Teacher' }),
+  DivProfile({ name:'Yamir Rodas', position:'Teacher', img:'https://martinalba.com/wp-content/uploads/2022/05/fotografia-profesional-1.jpg'}),
 ]
 
 export default function MainVisual() {

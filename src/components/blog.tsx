@@ -30,7 +30,7 @@ const BLOG_POSTS = [
 
 export default function Blog() {
   return (
-    <InView triggerOnce threshold={0.5}>
+    <InView triggerOnce threshold={0.1}>
         {({ inView, ref }) => (
                 <section className=' flex flex-col py-20 container space-y-5 overflow-x-hidden'>
                 <Title

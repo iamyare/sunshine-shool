@@ -26,11 +26,11 @@ export default function SectionImage({
             alt=''
             className='h-full w-screen absolute top-0 left-0 object-cover'
           />
-          <div className='absolute top-0 left-0 w-full h-full duration-500 ease-out transition-colors bg-primary/10 group-hover:bg-primary/50'></div>
+          <div className='absolute top-0 left-0 w-full h-full duration-500 ease-out transition-colors bg-primary/30 group-hover:bg-primary/50'></div>
 
           <div className='relative w-full md:px-0  md:max-w-3xl'>
             <div className='container flex flex-col space-y-4 pt-32 items-center justify-center h-full'>
-              <h2 className=' text-white text-5xl font-bold'>{title}</h2>
+              <h2 className=' text-white text-5xl font-semibold'>{title}</h2>
               <p className='text-white/80 text-center text-2xl'>
                 {description}
               </p>

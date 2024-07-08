@@ -105,7 +105,7 @@ const navigation = {
               <span className=" font-semibold">Sunshine School</span>
               </div>
               <p className="text-gray-500 text-base">
-                Making the world a better place through constructing elegant hierarchies.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget turpis nec lectus interdum tincidunt. Nullam
               </p>
               <div className="flex space-x-6">
                 {navigation.social.map((item) => (
@@ -172,7 +172,7 @@ const navigation = {
             </div>
           </div>
           <div className="mt-12 border-t border-gray-200 pt-8">
-            <p className="text-base text-gray-400 xl:text-center">&copy; 2020 Workflow, Inc. All rights reserved.</p>
+            <p className="text-base text-gray-400 xl:text-center">&copy; 2024 Workflow, Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>

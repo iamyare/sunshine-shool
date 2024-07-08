@@ -3,7 +3,7 @@ import CardsTweets from "./cards-tweets";
 import Title from "./ui/titles";
 import { motion, useScroll } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Button } from './ui/button';
+import ButtonPrimary from './button-primary';
 
 const TESTIMONIALS = [
   {
@@ -73,7 +73,7 @@ export default function Testimonials() {
         ))}
       </ul>
       
-      <Button className=' mx-auto'>Mas Historias</Button>
+        <ButtonPrimary text='Más Historias' className='mx-auto' />
     </section>
   );
 }
