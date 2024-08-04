@@ -1,25 +1,33 @@
-import { useLanguageContext } from "./languageContext";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem
+} from '@/components/ui/select'
+import { useLanguageContext } from './languageContext'
 
 const LanguageSelect = () => {
-  const { languages, onClickLanguageChange } = useLanguageContext();
-  return (
-    <select
-      style={{
-        width: 200,
-        position: "absolute",
-        top: 10,
-        left: 10,
-        height: "40px",
-      }}
-      onChange={onClickLanguageChange}
-    >
-      {Object.keys(languages).map((lng) => (
-        <option key={languages[lng].nativeName} value={lng}>
-          {languages[lng].nativeName}
-        </option>
-      ))}
-    </select>
-  );
-};
+  const { languages, onClickLanguageChange, currentLanguage } = useLanguageContext()
 
-export default LanguageSelect;
+  const handleLanguageChange = (value: string) => {
+    onClickLanguageChange(value)
+  }
+
+  return (
+    <Select onValueChange={handleLanguageChange} defaultValue={currentLanguage}>
+      <SelectTrigger className=' w-fit px-2 bg-transparent border-none hover:bg-background/50'>
+        <SelectValue placeholder='Language' />
+      </SelectTrigger>
+      <SelectContent>
+        {Object.entries(languages).map(([code, lang]) => (
+          <SelectItem key={code} value={code}>
+            {lang.flag} {lang.nativeName}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
+export default LanguageSelect
