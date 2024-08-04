@@ -26,7 +26,7 @@ const TESTIMONIALS = [
   }
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ title, description, tagContent }: { title: string, description: string, tagContent: string }) {
   const { scrollYProgress } = useScroll();
   const [offsetX, setOffsetX] = useState(0);
   const [startY, setStartY] = useState<number | null>(null);
@@ -59,7 +59,11 @@ export default function Testimonials() {
 
   return (
     <section ref={ref} className='w-screen flex flex-col py-10 bg-muted space-y-5 overflow-x-hidden'>
-      <Title title="Testimonios" description="Conoce lo que dicen nuestros estudiantes" tagContent="Opiniones" />
+      <Title 
+        title={title} 
+        description={description} 
+        tagContent={tagContent} 
+       />
 
       <ul className="flex space-x-2 pt-10 pb-20 md:ml-[50vw]" style={{ transform: `translateX(-${offsetX}px)` }}>
         {TESTIMONIALS.map((testimonial, index) => (

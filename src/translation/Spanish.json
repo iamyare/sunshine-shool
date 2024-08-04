@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "faq": "Preguntas Frecuentes",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "title": "Sunshine School",
+      "subtitle": "Bienvenido a",
+      "description": "Descubre una educación de alta calidad que combina estándares académicos rigurosos con métodos innovadores para desarrollar la creatividad y el pensamiento crítico."
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "content": "Nuestra misión es proporcionar una educación integral que desarrolle las habilidades académicas y creativas de nuestros estudiantes, preparándolos para ser individuos curiosos, comprometidos y con una mentalidad abierta hacia el aprendizaje continuo.",
+      "tag": "Misión"
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "content": "Vislumbramos ser una institución líder en educación innovadora, reconocida por nuestro compromiso con la excelencia académica y el desarrollo personal de cada estudiante. Queremos ser un lugar donde se cultiven la creatividad, la pasión y el amor por el aprendizaje.",
+      "tag": "Visión"
+    },
+    "about": {
+      "title": "Es Cosa de Halcones",
+      "description": "La cultura Sunshine fomenta un ambiente colaborativo y familiar, promoviendo altos valores éticos y un aprendizaje significativo."
+    },
+    "metrics": {
+      "title": "Nuestras Cifras",
+      "description": "Hemos estado proporcionando educación de calidad durante más de 20 años, con una tasa de graduación del 99% y el 95% de nuestros estudiantes continuando hacia la universidad.",
+      "tag": "Tasa de Graduación"
+    },
+    "testimonials": {
+      "title": "Lo Que Dicen Nuestros Estudiantes",
+      "description": "La Escuela Sunshine ha sido un faro de excelencia educativa desde su fundación. Nuestro compromiso con el desarrollo de las mentes jóvenes va más allá de la educación tradicional.",
+      "tag": "Testimonios"
+    }
+  },
+  "about": {
+    "title": "Sobre Sunshine School",
+    "content": "Sunshine School ha sido un faro de excelencia educativa desde su fundación. Nuestro compromiso de nutrir mentes jóvenes va más allá de lo académico tradicional."
+  },
+  "blog": {
+    "title": "Últimas Publicaciones",
+    "readMore": "Leer Más"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "noQuestions": "No hay preguntas disponibles en este momento."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "send": "Enviar"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  }
+}

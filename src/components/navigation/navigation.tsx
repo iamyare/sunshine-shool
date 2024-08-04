@@ -5,6 +5,8 @@ import Logo from '../ui/logo'
 import { NAVIGATION } from './navigation-data'
 import { cn } from '../../lib/utils'
 import ButtonPrimary from '../button-primary'
+import LanguageSelector from '../translation/languageSelect'
+
 
 export default function Navigation() {
   const { scrollYProgress } = useScroll()
@@ -44,6 +46,7 @@ export default function Navigation() {
 
         </ul>
       </nav>
+      <LanguageSelector/>
       <ButtonPrimary text='Contacto' />
     </motion.header>
   )
