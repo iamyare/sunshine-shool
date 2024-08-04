@@ -28,7 +28,7 @@ export default function MainVisual() {
     const updatePositions = () => {
       const latest = scrollYProgress.get(); // Obtiene el valor actual del progreso del scroll
       const newPositionsY = yPositions.map((_, index) => index % 2 === 0 ? latest * 100 : latest * -100);
-      const newPositionsX = latest * -200;
+      const newPositionsX = latest * -800;
       setYPositions(newPositionsY);
       setXPositions(newPositionsX);
     };

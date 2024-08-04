@@ -6,3 +6,4 @@ export default function DoodlesMain({className}:{className?:string}) {
     </div>
   )
 }
+ 
