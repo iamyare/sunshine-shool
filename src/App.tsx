@@ -8,18 +8,19 @@ import Metrics from '@/components/metrics'
 import Navigation from '@/components/navigation/navigation'
 import SectionColums from '@/components/section-colums'
 import SectionImage from '@/components/section-image'
-import Tecnologies from '@/components/tecnologies'
 import Testimonials from '@/components/testimonials'
 import Footer from './components/footer'
+import { Reviews } from './components/reviews'
 
 function App() {
   return (
-    <main className=' w-screen '>
+    <main className=' w-screen overflow-hidden '>
       <Navigation />
 
       <MainHero />
 
-      <Tecnologies />
+      {/* <Tecnologies /> */}
+      <Reviews/>
 
       <About />
 

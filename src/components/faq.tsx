@@ -49,7 +49,7 @@ export default function FAQ() {
            className='max-w-xl w-full mx-auto '>
             <Accordion className='w-full ' type='multiple' key='acordion-faq'>
               {FAQS.map((faq) => (
-                <AccordionItem value={faq.question}>
+                <AccordionItem key={faq.id} value={faq.question}>
                   <AccordionTrigger>
                     <h3 className='text-xl font-bold text-primary'>
                       {faq.question}
