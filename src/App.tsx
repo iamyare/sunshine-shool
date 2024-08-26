@@ -1,4 +1,11 @@
 
+
+import './App.css'
+import About from '@/components/about'
+
+import FAQ from '@/components/faq'
+
+
 import MainHero from '@/components/main-hero'
 import SectionColums from '@/components/section-colums'
 import SectionImage from '@/components/section-image'
@@ -8,6 +15,10 @@ import { Reviews } from '@/components/reviews'
 import { useLanguageContext } from './components/translation/languageContext'
 import Navigation from './components/navigation/navigation'
 import Footer from './components/footer'
+import { Reviews } from './components/reviews'
+import Magazine from './components/magazine'
+import Enrollments from './components/enrollments'
+
 
 function Home() {
   const { t } = useLanguageContext();
@@ -50,7 +61,24 @@ function Home() {
       tagContent={t('home.testimonials.tag')}
       />
 
+
       <Footer />
+
+
+      <Metrics/>
+
+      <Testimonials />
+
+      <Magazine />
+
+      <FAQ />
+
+      <Enrollments />
+
+      {/* <Blog /> */}
+
+      <Footer />
+
     </main>
   )
 }

@@ -17,6 +17,7 @@ export default function SectionColums({
 }) {
   return (
     <SectionAnimation
+      id='missionAndVision'
       className={cn(
         'flex container py-10 gap-4',
         direction === 'left'

@@ -5,6 +5,7 @@ import { useMediaQuery } from '@/lib/use-media-query'
 
 interface SectionAnimationProps {
   children: React.ReactNode
+  id: string
   className?: string
   motions?: MotionProps
   inViewOptions?: {
@@ -16,6 +17,7 @@ interface SectionAnimationProps {
 
 export default function SectionAnimation({
   children,
+  id,
   className,
   motions = {} as MotionProps,
   inViewOptions
@@ -40,11 +42,12 @@ export default function SectionAnimation({
       {({ inView, ref }) => (
         <motion.section
           ref={ref}
+          id={id}
           initial={initial}
           animate={inView ? animate : {}}
           transition={transition}
           className={cn(
-            'py-10 flex flex-col  gap-5 items-center',
+            'py-10 flex flex-col  gap-5 items-center scroll-mt-16',
             className
           )}
         >

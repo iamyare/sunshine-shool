@@ -12,6 +12,7 @@ export default function SectionImage({
 }) {
   return (
     <SectionAnimation
+      id='it-is-a-hawk-things'
       className={cn(
         'h-[80vh] w-screen relative flex justify-center items-center p-0 group',
         className
@@ -35,10 +36,10 @@ export default function SectionImage({
           <p className='text-white/80 text-center text-2xl'>{description}</p>
           <div className='flex space-x-4'>
             <button className='bg-primary text-white px-4 py-2 rounded-lg'>
-              Conoce Más
+              Learn More
             </button>
             <button className='bg-secondary text-white px-4 py-2 rounded-lg'>
-              Inscríbete Ahora
+              Sign Up Now
             </button>
           </div>
         </div>

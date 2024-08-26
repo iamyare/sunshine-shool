@@ -38,19 +38,19 @@ export default function Navigation() {
       </div>
       <nav className=' items-center hidden md:flex'>
         <ul className='flex space-x-10'>
-          {NAVIGATION.map((item, index) => (
-            <li
-              key={index}
-              className={cn(
-                'text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
-                pathname === item.href
-                  ? 'text-muted group-[.is-active]:text-foreground font-semibold'
-                  : ''
-              )}
-            >
-              {item.name}
-            </li>
-          ))}
+            {
+                NAVIGATION.map((item, index) => (
+                    <li key={index} className={
+                        cn('text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
+                        pathname === item.href ? 'text-muted group-[.is-active]:text-foreground font-semibold' : ''
+                        )
+                    }>
+                      <a href={item.href}>
+                      {item.name}
+                      </a>
+                    </li>
+                ))
+            }
         </ul>
       </nav>
 
