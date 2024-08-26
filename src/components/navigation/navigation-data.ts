@@ -1,22 +1,29 @@
-export const NAVIGATION = [
-    {
-        name: 'Home',
-        href: '#'
-    },
-    {
-        name: 'About',
-        href: '#about'
-    },
-    {
-        name: 'Contact',
-        href: '#contact'
-    },
-    {
-        name: 'Es Cosa de Halcones',
-        href: '#it-is-a-hawk-things'
-    },
-    {
-        name: 'Enrollments',
-        href: '#enrollments'
-    }
-]
+import { useLanguageContext } from "../translation/languageContext"
+
+
+export const NAVIGATION = () => {
+    const { t } = useLanguageContext()
+
+    return [
+        {
+            name: t('navigation.home'),
+            href: '#'
+        },
+        {
+            name: t('navigation.about'),
+            href: '#about'
+        },
+        {
+            name: t('navigation.contact'),
+            href: '#contact'
+        },
+        {
+            name: t('navigation.itIsAHawkThings'),
+            href: '#it-is-a-hawk-things'
+        },
+        {
+            name: t('navigation.enrollments'),
+            href: '#enrollments'
+        }
+    ]
+}

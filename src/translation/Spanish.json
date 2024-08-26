@@ -4,7 +4,9 @@
     "about": "Nosotros",
     "blog": "Blog",
     "faq": "Preguntas Frecuentes",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "enrollments": "Inscripciones",
+    "itIsAHawkThings": "Es Cosa de Halcones"
   },
   "home": {
     "hero": {
@@ -47,7 +49,28 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
-    "noQuestions": "No hay preguntas disponibles en este momento."
+    "noQuestions": "No hay preguntas disponibles en este momento.",
+    "question1": "¿Cuál es el proceso de admisión?",
+    "answer1": "El proceso de admisión implica enviar un formulario de solicitud, asistir a una entrevista y proporcionar los documentos necesarios.",
+    "question2": "¿Cuáles son las tarifas escolares?",
+    "answer2": "Las tarifas escolares varían según el nivel de grado. Por favor, contacta a nuestra oficina de admisiones para obtener información detallada.",
+    "question3": "¿Qué actividades extracurriculares se ofrecen?",
+    "answer3": "Ofrecemos una variedad de actividades extracurriculares que incluyen deportes, música, arte y clubes."
+  },
+  "enrollments": {
+    "requirementsTag": "Requisitos",
+    "requirements": {
+      "firstEntry": "Primera Entrada",
+      "transferOrEntry": "Transferencia o Entrada"
+    },
+    "prerequisites": {
+      "vaccineCard": "Tarjeta de Vacunas",
+      "birthCertificate": "Certificado de Nacimiento",
+      "previousSchoolCertification": "Certificación de la Escuela Anterior",
+      "previousSchoolConduct": "Conducta de la Escuela Anterior",
+      "previousSchoolSolvency": "Solvencia de la Escuela Anterior",
+      "diagnosticTest": "Prueba Diagnóstica"
+    }
   },
   "contact": {
     "title": "Contáctanos",

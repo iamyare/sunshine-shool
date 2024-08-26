@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useScroll } from 'framer-motion'
 import Logo from '../ui/logo'
 import { NAVIGATION } from './navigation-data'
 import { cn } from '../../lib/utils'
@@ -12,13 +11,12 @@ export default function Navigation() {
   const [headerClass, setHeaderClass] = useState('bg-background/0')
 
   useEffect(() => {
-    scrollYProgress.onChange(() => {
+    const unsubscribe = scrollYProgress.onChange((latest) => {
       const newClass =
-        scrollYProgress.get() > 0.1
-          ? 'bg-background/50 group is-active'
-          : 'bg-background/0'
+        latest > 0.1 ? 'bg-background/50 group is-active' : 'bg-background/0'
       setHeaderClass(newClass)
     })
+    return () => unsubscribe()
   }, [scrollYProgress])
 
   const pathname = window.location.pathname
@@ -28,7 +26,7 @@ export default function Navigation() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeInOut' }}
-      className={`flex  fixed w-screen z-50 items-center justify-between py-4 px-10  backdrop-blur-md transition-colors duration-500 ease-in-out hover:bg-background/50  ${headerClass}`}
+      className={`flex fixed w-screen z-50 items-center justify-between py-4 px-10 backdrop-blur-md transition-colors duration-500 ease-in-out hover:bg-background/50 ${headerClass}`}
     >
       <div className='flex items-center space-x-2'>
         <Logo className='h-10 w-10' />
@@ -36,25 +34,23 @@ export default function Navigation() {
           Sunshine School
         </span>
       </div>
-      <nav className=' items-center hidden md:flex'>
+      <nav className='items-center hidden md:flex'>
         <ul className='flex space-x-10'>
-            {
-                NAVIGATION.map((item, index) => (
-                    <li key={index} className={
-                        cn('text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
-                        pathname === item.href ? 'text-muted group-[.is-active]:text-foreground font-semibold' : ''
-                        )
-                    }>
-                      <a href={item.href}>
-                      {item.name}
-                      </a>
-                    </li>
-                ))
-            }
+          {NAVIGATION().map((item: { name: string; href: string }, index: number) => (
+            <li
+              key={index}
+              className={cn(
+                'text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
+                pathname === item.href ? 'text-muted group-[.is-active]:text-foreground font-semibold' : ''
+              )}
+            >
+              <a href={item.href}>{item.name}</a>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      <div className=' flex items-center gap-2'>
+      <div className='flex items-center gap-2'>
         <LanguageSelector />
         <ButtonPrimary text='Contacto' />
       </div>

@@ -1,37 +1,34 @@
-
-
 import './App.css'
-import About from '@/components/about'
 
 import FAQ from '@/components/faq'
-
 
 import MainHero from '@/components/main-hero'
 import SectionColums from '@/components/section-colums'
 import SectionImage from '@/components/section-image'
-import Metrics from '@/components/metrics'
-import Testimonials from '@/components/testimonials'
-import { Reviews } from '@/components/reviews'
+
 import { useLanguageContext } from './components/translation/languageContext'
 import Navigation from './components/navigation/navigation'
 import Footer from './components/footer'
-import { Reviews } from './components/reviews'
 import Magazine from './components/magazine'
 import Enrollments from './components/enrollments'
-
+import Testimonials from './components/testimonials'
+import Metrics from './components/metrics'
+import { Reviews } from './components/reviews'
+import About from './components/about'
 
 function Home() {
-  const { t } = useLanguageContext();
+  const { t } = useLanguageContext()
 
   return (
     <main className=' w-screen overflow-hidden'>
       <Navigation />
-      <MainHero 
-        title={t('home.hero.title')} 
-        subtitle={t('home.hero.subtitle')} 
+      <MainHero
+        title={t('home.hero.title')}
+        subtitle={t('home.hero.subtitle')}
         description={t('home.hero.description')}
       />
       <Reviews />
+      <About />
       <SectionColums
         img='https://fuxlxocsolxkylxphywx.supabase.co/storage/v1/object/public/temp/sunshine/unas.jpeg'
         title={t('home.mission.title')}
@@ -51,25 +48,20 @@ function Home() {
         description={t('home.about.description')}
         className=''
       />
-      <Metrics 
-      title={t('home.metrics.title')}
-      description={t('home.metrics.description')}
-      tagContent={t('home.metrics.tag')}
-       />
-      <Testimonials title={t('home.testimonials.title')}
-      description={t('home.testimonials.description')}
-      tagContent={t('home.testimonials.tag')}
+      <Metrics
+        title={t('home.metrics.title')}
+        description={t('home.metrics.description')}
+        tagContent={t('home.metrics.tag')}
+      />
+      <Testimonials
+        title={t('home.testimonials.title')}
+        description={t('home.testimonials.description')}
+        tagContent={t('home.testimonials.tag')}
       />
 
 
-      <Footer />
-
-
-      <Metrics/>
-
-      <Testimonials />
-
       <Magazine />
+
 
       <FAQ />
 
@@ -78,7 +70,6 @@ function Home() {
       {/* <Blog /> */}
 
       <Footer />
-
     </main>
   )
 }

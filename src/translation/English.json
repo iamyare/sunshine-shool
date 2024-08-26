@@ -4,7 +4,10 @@
     "about": "About",
     "blog": "Blog",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "enrollments": "Enrollments",
+    "itIsAHawkThings": "It's a Hawk Thing"
+
   },
   "home": {
     "hero": {
@@ -47,7 +50,28 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "noQuestions": "No questions available at the moment."
+    "noQuestions": "No questions available at the moment.",
+    "question1": "What is the admission process?",
+    "answer1": "The admission process involves submitting an application form, attending an interview, and providing necessary documents.",
+    "question2": "What are the school fees?",
+    "answer2": "School fees vary depending on the grade level. Please contact our admissions office for detailed information.",
+    "question3": "What extracurricular activities are offered?",
+    "answer3": "We offer a variety of extracurricular activities including sports, music, art, and clubs."
+  },
+  "enrollments": {
+    "requirementsTag": "Requirements",
+    "requirements": {
+      "firstEntry": "First Entry",
+      "transferOrEntry": "Transfer or Entry"
+    },
+    "prerequisites": {
+      "vaccineCard": "Vaccine Card",
+      "birthCertificate": "Birth Certificate",
+      "previousSchoolCertification": "Previous School Certification",
+      "previousSchoolConduct": "Previous School Conduct",
+      "previousSchoolSolvency": "Previous School Solvency",
+      "diagnosticTest": "Diagnostic Test"
+    }
   },
   "contact": {
     "title": "Contact Us",
