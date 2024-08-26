@@ -49,6 +49,7 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
+    "description": "A continuación, encontrarás algunas de las preguntas más frecuentes que recibimos. Si no encuentras la respuesta que buscas, no dudes en contactarnos.",
     "noQuestions": "No hay preguntas disponibles en este momento.",
     "question1": "¿Cuál es el proceso de admisión?",
     "answer1": "El proceso de admisión implica enviar un formulario de solicitud, asistir a una entrevista y proporcionar los documentos necesarios.",

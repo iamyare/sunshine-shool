@@ -50,6 +50,7 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
+    "description": "Below you will find some of the most frequently asked questions we receive. If you do not find the answer you are looking for, please do not hesitate to contact us.",
     "noQuestions": "No questions available at the moment.",
     "question1": "What is the admission process?",
     "answer1": "The admission process involves submitting an application form, attending an interview, and providing necessary documents.",
