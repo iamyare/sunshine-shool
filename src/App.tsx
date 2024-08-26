@@ -11,6 +11,7 @@ import SectionImage from '@/components/section-image'
 import Testimonials from '@/components/testimonials'
 import Footer from './components/footer'
 import { Reviews } from './components/reviews'
+import Magazine from './components/magazine'
 
 function App() {
   return (
@@ -52,9 +53,13 @@ function App() {
 
       <FAQ />
 
+      <Magazine />
+
       <Blog />
 
       <Footer />
+
+
 
     </main>
   )
