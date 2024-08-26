@@ -6,7 +6,13 @@ import { Button } from './ui/button'
 
 import { motion } from 'framer-motion'
 
-export default function MainHero() {
+interface MainHeroProps {
+  title: string
+  subtitle: string
+  description: string
+}
+
+export default function MainHero({title, subtitle, description}: MainHeroProps) {
   return (
     <section className=' relative overflow-hidden'>
       <div className='absolute -z-[1] radial-mask-invert'>
@@ -31,10 +37,10 @@ export default function MainHero() {
               className=' flex flex-col text-center'
             >
               <span className='text-4xl font-semibold text-primary'>
-                Bienvenido a
+              {subtitle}
               </span>
               <span className='text-6xl font-bold text-secondary relative'>
-                Sunshine School
+              {title}
               </span>
             </motion.h1>
           </div>
@@ -44,9 +50,7 @@ export default function MainHero() {
             transition={{ duration: 1, delay: 0.5 }}
             className=' text-muted-foreground text-lg text-center'
           >
-            Descubre una educación de alta calidad que combina estándares
-            académicos rigurosos con métodos innovadores para desarrollar la
-            creatividad y el pensamiento crítico.
+            {description}
           </motion.p>
         </div>
 

@@ -58,7 +58,7 @@ export default function Title({
 
           <div
             className={cn(
-              'flex flex-col items-center space-y-2',
+              'flex flex-col items-center space-y-2 max-w-2xl',
               ClassNameProps?.classNameContainerText
             )}
           >

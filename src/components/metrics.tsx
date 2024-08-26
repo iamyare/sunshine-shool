@@ -29,10 +29,10 @@ const metrics = [
     ]
 
 
-export default function Metrics() {
+export default function Metrics({title, description, tagContent}: {title: string, description: string, tagContent: string}) {
   return (
     <section className=" w-screen flex flex-col items-center py-8 space-y-4 container">
-        <Title title="Nuestros Números" description="Conoce más sobre nuestra institución" tagContent="Metricas" ClassNameProps={{classNameTag:'bg-muted', classNameTitle:'text-3xl spacing-[-0.7]'}} />
+        <Title title={title} description={description} tagContent={tagContent} ClassNameProps={{classNameTag:'bg-muted', classNameTitle:'text-3xl spacing-[-0.7]'}} />
         <div className="w-full flex flex-col md:flex-row md:gap-20 items-center justify-center gap-4">
             {metrics.map((metric, index) => (
                 <MetricsNumber key={index} value={metric.value} label={metric.label} delay={index/2} />

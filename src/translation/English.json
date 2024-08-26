@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Sunshine School",
+      "subtitle": "Welcome to",
+      "description": "Discover a high-quality education that combines rigorous academic standards with innovative methods to develop creativity and critical thinking."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "Our mission is to provide a comprehensive education that develops the academic and creative skills of our students, preparing them to be curious, committed individuals with an open mind towards continuous learning.",
+      "tag": "Mission"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "We envision being a leading institution in innovative education, recognized for our commitment to academic excellence and the personal development of each student. We want to be a place where creativity, passion and love for learning are cultivated.",
+      "tag": "Vision"
+    },
+    "about": {
+      "title": "It's About Hawks",
+      "description": "The Sunshine culture fosters a collaborative and family environment, promoting high ethical values and meaningful learning."
+    },
+    "metrics": {
+      "title": "Our Numbers",
+      "description": "We have been providing quality education for over 20 years, with a 99% graduation rate and 95% of our students going on to college.",
+      "tag": "Graduation Rate"
+    },
+    "testimonials": {
+      "title": "What Our Students Say",
+      "description": "Sunshine School has been a beacon of educational excellence since its founding. Our commitment to nurturing young minds goes beyond traditional academics.",
+      "tag": "Testimonials"
+    }
+  },
+  "about": {
+    "title": "About Sunshine School",
+    "content": "Sunshine School has been a beacon of educational excellence since its founding. Our commitment to nurturing young minds goes beyond traditional academics."
+  },
+  "blog": {
+    "title": "Latest Posts",
+    "readMore": "Read More"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "noQuestions": "No questions available at the moment."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
