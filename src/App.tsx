@@ -12,6 +12,7 @@ import Testimonials from '@/components/testimonials'
 import Footer from './components/footer'
 import { Reviews } from './components/reviews'
 import Magazine from './components/magazine'
+import Enrollments from './components/enrollments'
 
 function App() {
   return (
@@ -54,6 +55,8 @@ function App() {
       <FAQ />
 
       <Magazine />
+
+      <Enrollments />
 
       <Blog />
 
