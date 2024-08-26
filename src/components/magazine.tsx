@@ -52,7 +52,7 @@ function MagazineItem({
   const itemVariants = {
     hidden: { width: isDesktop ? '150px' : '50px' },
     visible: {
-      width: isDesktop ? '500px' : '100%',
+      width: isDesktop ? '550px' : '100%',
       transition: { duration: 0.7 }
     }
   }
@@ -61,7 +61,7 @@ function MagazineItem({
 
     <motion.div
       className={
-        'relative h-[300px] rounded-xl overflow-hidden group cursor-pointer'
+        'relative h-[50vh] rounded-xl overflow-hidden group cursor-pointer'
       }
       initial='hidden'
       animate={isActive ? 'visible' : 'hidden'}
@@ -114,8 +114,10 @@ export default function Magazine() {
   }, [])
 
   return (
-    <SectionAnimation>
-      <aside className='flex flex-col space-y-5 items-center px-4 w-full md:px-0 md:max-w-3xl mx-auto'>
+    <SectionAnimation
+      id='magazines'
+    >
+      <aside className='flex flex-col space-y-5 items-center w-full container'>
         <Tag content='Revistas' className='bg-muted' />
         <div className='flex items-center space-x-2'>
           {MAGAZINES.map((magazine, index) => (

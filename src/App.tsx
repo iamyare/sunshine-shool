@@ -1,6 +1,6 @@
 import './App.css'
 import About from '@/components/about'
-import Blog from '@/components/blog'
+
 import FAQ from '@/components/faq'
 
 import MainHero from '@/components/main-hero'
@@ -52,13 +52,13 @@ function App() {
 
       <Testimonials />
 
-      <FAQ />
-
       <Magazine />
+
+      <FAQ />
 
       <Enrollments />
 
-      <Blog />
+      {/* <Blog /> */}
 
       <Footer />
 

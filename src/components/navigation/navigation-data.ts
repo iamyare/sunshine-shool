@@ -1,14 +1,22 @@
 export const NAVIGATION = [
     {
         name: 'Home',
-        href: '/'
+        href: '#'
     },
     {
         name: 'About',
-        href: '/about'
+        href: '#about'
     },
     {
         name: 'Contact',
-        href: '/contact'
+        href: '#contact'
+    },
+    {
+        name: 'Es Cosa de Halcones',
+        href: '#it-is-a-hawk-things'
+    },
+    {
+        name: 'Enrollments',
+        href: '#enrollments'
     }
 ]

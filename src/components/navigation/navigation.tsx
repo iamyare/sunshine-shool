@@ -38,7 +38,11 @@ export default function Navigation() {
                         cn('text-muted/70 group-[.is-active]:text-primary transition-colors duration-300 hover:text-primary active:text-primary font-medium',
                         pathname === item.href ? 'text-muted group-[.is-active]:text-foreground font-semibold' : ''
                         )
-                    }>{item.name}</li>
+                    }>
+                      <a href={item.href}>
+                      {item.name}
+                      </a>
+                    </li>
                 ))
             }
 

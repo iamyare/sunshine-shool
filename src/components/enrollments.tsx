@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from './ui/button'
 import { useState } from 'react'
 import { CoolMode } from './ui/cool-mode'
+import Tag from './tag'
 
 const ENROLLMENT_ITEMS = [
   {
@@ -42,9 +43,11 @@ export default function Enrollments() {
   )
 
   return (
-    <SectionAnimation>
-      <aside className='flex container flex-col space-y-5 items-center w-full'>
-        <h2 className='text-4xl font-medium text-secondary'>Requerimientos de Admisión</h2>
+    <SectionAnimation
+      id='enrollments'
+    >
+      <aside className='flex flex-col space-y-5 items-center w-full container'>
+      <Tag content='Requerimientos' className='bg-muted' />
         <div className='flex flex-col-reverse md:flex-row h-full w-full gap-2 items-center'>
           <div className='h-full w-full relative rounded-2xl overflow-hidden'>
             <AnimatePresence mode='wait'>
@@ -99,6 +102,7 @@ export default function Enrollments() {
           </ul>
         </div>
       </aside>
+
     </SectionAnimation>
   )
 }
