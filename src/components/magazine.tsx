@@ -57,6 +57,8 @@ function MagazineItem({
     }
   }
   return (
+    <a href="#">
+
     <motion.div
       className={
         'relative h-[300px] rounded-xl overflow-hidden group cursor-pointer'
@@ -95,6 +97,7 @@ function MagazineItem({
         )}
       </div>
     </motion.div>
+    </a>
   )
 }
 

@@ -2,6 +2,7 @@ import SectionAnimation from './section-animation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from './ui/button'
 import { useState } from 'react'
+import { CoolMode } from './ui/cool-mode'
 
 const ENROLLMENT_ITEMS = [
   {
@@ -25,6 +26,15 @@ const ENROLLMENT_ITEMS = [
     ]
   }
 ]
+
+function getParticleOption(title: string): string | undefined {
+  switch (title) {
+    case 'Requisitos para traslado o ingreso (aplica para alumnos de Prek en adelante)':
+      return 'https://th.bing.com/th/id/OIP.FNx8zNSGAWV306j1BsocDAHaHk?rs=1&pid=ImgDetMain'
+    default:
+      return undefined
+  }
+}
 
 export default function Enrollments() {
   const [enrollmentSelected, setEnrollmentSelected] = useState(
@@ -71,17 +81,19 @@ export default function Enrollments() {
           <ul className='flex flex-col gap-2'>
             {ENROLLMENT_ITEMS.map((enrollment, index) => (
               <li key={index}>
-                <Button
-                  variant={
-                    enrollmentSelected.title === enrollment.title
-                      ? 'default'
-                      : 'outline'
-                  }
-                  className='max-w-64 whitespace-normal h-fit'
-                  onClick={() => setEnrollmentSelected(enrollment)}
-                >
-                  {enrollment.title}
-                </Button>
+                <CoolMode options={{ particle: getParticleOption(enrollment.title) }}>
+                  <Button
+                    variant={
+                      enrollmentSelected.title === enrollment.title
+                        ? 'default'
+                        : 'outline'
+                    }
+                    className='max-w-64 whitespace-normal h-fit'
+                    onClick={() => setEnrollmentSelected(enrollment)}
+                  >
+                    {enrollment.title}
+                  </Button>
+                </CoolMode>
               </li>
             ))}
           </ul>
