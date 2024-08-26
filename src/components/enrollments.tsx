@@ -5,18 +5,24 @@ import { useState } from 'react'
 
 const ENROLLMENT_ITEMS = [
   {
-    title: 'Course 1',
-    description: 'Course 1 description',
-    image:
-      'https://th.bing.com/th/id/OLC.14xckbqMhO1R0A480x360?&rs=1&pid=ImgDetMain',
-    prerequisites: ['prerequisite 1', 'prerequisite 2', 'prerequisite 3']
+    title: 'Requisitos para primer ingreso',
+    description: '',
+    image: 'https://th.bing.com/th/id/OLC.14xckbqMhO1R0A480x360?&rs=1&pid=ImgDetMain',
+    prerequisites: [
+      'Copia y original del carnet de vacunas.',
+      'Partida de nacimiento original.'
+    ]
   },
   {
-    title: 'Course 2',
-    description: 'Course 2 description',
-    image:
-      'https://th.bing.com/th/id/OLC.14xckbqMhO1R0A480x360?&rs=1&pid=ImgDetMain',
-    prerequisites: ['prerequisite 1', 'prerequisite 2', 'prerequisite 3', 'prerequisite 1', 'prerequisite 2', 'prerequisite 3', 'prerequisite 1', 'prerequisite 2', 'prerequisite 3', 'prerequisite 1', 'prerequisite 2', 'prerequisite 3', 'prerequisite 1', 'prerequisite 2', 'prerequisite 3']
+    title: 'Requisitos para traslado o ingreso (aplica para alumnos de Prek en adelante)',
+    description: '',
+    image: 'https://th.bing.com/th/id/OLC.14xckbqMhO1R0A480x360?&rs=1&pid=ImgDetMain',
+    prerequisites: [
+      'Traer Certificación de Estudios de la escuela anterior.',
+      'Traer Certificación de Conducta de la escuela anterior.',
+      'Traer Constancia de Solvencia de la escuela anterior.',
+      'Hacer prueba diagnóstico en la escuela.'
+    ]
   }
 ]
 
@@ -27,11 +33,10 @@ export default function Enrollments() {
 
   return (
     <SectionAnimation>
-      <aside className=' flex flex-col space-y-5 items-center px-4 w-full md:px-0  md:max-w-3xl mx-auto'>
-        <h2 className='text-4xl font-medium text-secondary'>Enrollments</h2>
-        <p className='text-muted'>Enrollments description</p>
-        <div className='flex h-full  w-full gap-2 items-center'>
-          <div className='h-full w-full relative rounded-2xl overflow-hidden  '>
+      <aside className='flex container flex-col space-y-5 items-center w-full'>
+        <h2 className='text-4xl font-medium text-secondary'>Requerimientos de Admisión</h2>
+        <div className='flex flex-col-reverse md:flex-row h-full w-full gap-2 items-center'>
+          <div className='h-full w-full relative rounded-2xl overflow-hidden'>
             <AnimatePresence mode='wait'>
               <motion.div
                 key={enrollmentSelected.title}
@@ -39,26 +44,25 @@ export default function Enrollments() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className='flex flex-col justify-end gap-2 h-[300px]  '
+                className='flex flex-col justify-end gap-2 h-[400px]'
               >
                 <img
                   src={enrollmentSelected.image}
                   alt={enrollmentSelected.title}
-                  className=' absolute object-cover w-full h-full'
+                  className='absolute object-cover w-full h-full'
                 />
-                <div className=' absolute bg-gradient-to-b from-primary/20 to-primary/70 inset-0'></div>
-                <div className='flex flex-col z-10 px-8 p-4 overflow-y-auto '>
-                <h3 className='text-2xl font-medium text-secondary'>
-                  {enrollmentSelected.title}
-                </h3>
-                <p className='text-muted'>{enrollmentSelected.description}</p>
-                <ul className='list-disc text-muted'>
-                  {enrollmentSelected.prerequisites.map(
-                    (prerequisite, index) => (
-                      <li key={index}>{prerequisite}</li>
-                    )
-                  )}
-                </ul>
+                <div className='absolute bg-gradient-to-b from-primary/20 to-primary/70 inset-0'></div>
+                <div className='flex flex-col z-10 px-8 p-4 overflow-y-auto'>
+                  <h3 className='text-2xl font-medium text-secondary'>
+                    {enrollmentSelected.title}
+                  </h3>
+                  <ul className='list-disc text-muted'>
+                    {enrollmentSelected.prerequisites.map(
+                      (prerequisite, index) => (
+                        <li key={index}>{prerequisite}</li>
+                      )
+                    )}
+                  </ul>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -73,6 +77,7 @@ export default function Enrollments() {
                       ? 'default'
                       : 'outline'
                   }
+                  className='max-w-64 whitespace-normal h-fit'
                   onClick={() => setEnrollmentSelected(enrollment)}
                 >
                   {enrollment.title}
