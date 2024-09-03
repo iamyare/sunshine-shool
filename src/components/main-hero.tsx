@@ -73,13 +73,13 @@ export default function MainHero({title, subtitle, description}: MainHeroProps) 
         <MainVisual />
       </aside>
 
-      <div className='absolute -top-0 -translate-y-1/2 -left-0 -translate-x-1/2 lg:w-[20vw] md:w-[500px] w-[300px] blur-[100px] md:blur-[200px]  aspect-video bg-secondary -z-10'></div>
+      <div className='absolute -top-0 -translate-y-1/2 -left-0 -translate-x-1/2 lg:w-[20vw] md:w-[500px] w-[300px] blur-[100px] md:blur-[200px]  aspect-video bg-secondary/80 -z-10'></div>
       <div className='absolute -top-0 -translate-y-1/2 left-20 -translate-x-1/2 lg:w-[60vw] md:w-[500px] hidden md:block blur-[100px] md:blur-[200px]  aspect-video bg-secondary/50 -z-10'></div>
 
       <div className='absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2  ml-[10%] blur-[100px] md:blur-[200px]  lg:w-[30vw] md:w-[200px] hidden sm:block w-[600px] opacity-50 md:opacity-100  aspect-video bg-primary/50 -z-10'></div>
       <div className='absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 -ml-[10%] blur-[100px] md:blur-[200px]  lg:w-[30vw] md:w-[200px] hidden sm:block w-[600px] opacity-50 md:opacity-100  aspect-video bg-secondary/50 -z-10'></div>
 
-      <div className='absolute -top-0 -translate-y-1/2 right-0 translate-x-1/2 lg:w-[20vw] md:w-[500px] w-[300px] blur-[100px] md:blur-[200px]  aspect-video bg-primary -z-10'></div>
+      <div className='absolute -top-0 -translate-y-1/2 right-0 translate-x-1/2 lg:w-[20vw] md:w-[500px] w-[300px] blur-[100px] md:blur-[200px]  aspect-video bg-primary/80 -z-10'></div>
       <div className='absolute -top-0 -translate-y-1/2 right-20 translate-x-1/2 lg:w-[60vw] md:w-[500px] w-[600px] hidden md:block blur-[100px] md:blur-[200px]  aspect-video bg-primary/50 -z-10'></div>
     </section>
   )

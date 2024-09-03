@@ -15,6 +15,7 @@ import Testimonials from './components/testimonials'
 import Metrics from './components/metrics'
 import { Reviews } from './components/reviews'
 import About from './components/about'
+import STEAM from './components/steam'
 
 function Home() {
   const { t } = useLanguageContext()
@@ -43,6 +44,10 @@ function Home() {
         direction='right'
         tag={t('home.vision.tag')}
       />
+      <STEAM />
+
+    
+
       <SectionImage
         title={t('home.about.title')}
         description={t('home.about.description')}
