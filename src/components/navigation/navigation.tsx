@@ -13,7 +13,7 @@ export default function Navigation() {
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
       const newClass =
-        latest > 0.1 ? 'bg-background/50 group is-active' : 'bg-background/0'
+        latest > 0.02 ? 'bg-background/50 group is-active' : 'bg-background/0'
       setHeaderClass(newClass)
     })
     return () => unsubscribe()
