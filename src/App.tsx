@@ -16,6 +16,7 @@ import Metrics from './components/metrics'
 import { Reviews } from './components/reviews'
 import About from './components/about'
 import STEAM from './components/steam'
+import AcademicProgram from './components/academic-program'
 
 function Home() {
   const { t } = useLanguageContext()
@@ -44,6 +45,9 @@ function Home() {
         direction='right'
         tag={t('home.vision.tag')}
       />
+
+<AcademicProgram />
+
       <STEAM />
 
     
