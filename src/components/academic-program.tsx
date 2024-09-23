@@ -32,8 +32,8 @@ const DATA_ACADEMIC_PROGRAM = [
       description:
         'La educación secundaria en Sunshine School abarca los años de 5to a 8vo grado, una etapa crucial de cambios físicos, intelectuales y emocionales. Reconociendo la energía y el entusiasmo de los preadolescentes, Sunshine School ofrece un programa que los reta y empodera, preparándolos para la vida en la secundaria y más allá. Nuestros alumnos de secundaria adquieren habilidades invaluables a través de experiencias prácticas y colaborativas, que les preparan para enfrentar los desafíos académicos y profesionales del futuro. En esta etapa, también se refuerza la preparación para la vida universitaria y el mundo laboral, con un enfoque en el desarrollo de destrezas esenciales como la toma de decisiones, el liderazgo y la resiliencia.',
       img: ninos,
-      bg: 'bg-green-100',
-      fill: 'fill-green-500',
+      bg: 'bg-orange-100',
+      fill: 'fill-orange-500',
       path: 'M0 287L14.5 293.3C29 299.7 58 312.3 87.2 312.3C116.3 312.3 145.7 299.7 174.8 315C204 330.3 233 373.7 262 382C291 390.3 320 363.7 349 362.5C378 361.3 407 385.7 436.2 394.5C465.3 403.3 494.7 396.7 523.8 391C553 385.3 582 380.7 611 362.7C640 344.7 669 313.3 698 308.5C727 303.7 756 325.3 785.2 336.2C814.3 347 843.7 347 872.8 337.2C902 327.3 931 307.7 945.5 297.8L960 288L960 541L945.5 541C931 541 902 541 872.8 541C843.7 541 814.3 541 785.2 541C756 541 727 541 698 541C669 541 640 541 611 541C582 541 553 541 523.8 541C494.7 541 465.3 541 436.2 541C407 541 378 541 349 541C320 541 291 541 262 541C233 541 204 541 174.8 541C145.7 541 116.3 541 87.2 541C58 541 29 541 14.5 541L0 541Z'
     }
   ]
@@ -57,7 +57,7 @@ export default function AcademicProgram() {
   return (
     <SectionAnimation
       id='it-is-a-hawk-things'
-      className={cn('h-screen relative overflow-hidden', active.bg)}
+      className={cn('h-[90vh] relative overflow-hidden', active.bg)}
     >
       <motion.div
         key={active.title}

@@ -81,7 +81,7 @@ export default function Enrollments() {
             </AnimatePresence>
           </div>
 
-          <ul className='flex flex-col gap-2'>
+          <ul className='flex flex-wrap md:flex-col gap-2'>
             {ENROLLMENT_ITEMS.map((enrollment, index) => (
               <li key={index}>
                 <CoolMode options={{ particle: getParticleOption(enrollment.title) }}>
@@ -91,7 +91,7 @@ export default function Enrollments() {
                         ? 'default'
                         : 'outline'
                     }
-                    className='max-w-64 whitespace-normal h-fit'
+                    className='max-w-64 md:w-full whitespace-normal h-fit'
                     onClick={() => setEnrollmentSelected(enrollment)}
                   >
                     {t(enrollment.title)}

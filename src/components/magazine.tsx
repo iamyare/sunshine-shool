@@ -11,21 +11,24 @@ const MAGAZINES = [
     description:
       'En nuestra revista podrás encontrar artículos interesantes sobre educación, innovación y mucho más. ¡No te la pierdas!',
     image:
-      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
+      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain',
+    link: 'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
   },
   {
     title: 'Revista 2',
     description:
       'En nuestra revista podrás encontrar artículos interesantes sobre educación, innovación y mucho más. ¡No te la pierdas!',
     image:
-      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
+      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain',
+    link: 'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
   },
   {
     title: 'Revista 3',
     description:
       'En nuestra revista podrás encontrar artículos interesantes sobre educación, innovación y mucho más. ¡No te la pierdas!',
     image:
-      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
+      'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain',
+    link: 'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
   }
 ]
 
@@ -38,6 +41,7 @@ function MagazineItem({
   title,
   description,
   image,
+  link,
   isActive,
   onHover,
   isDesktop
@@ -45,6 +49,7 @@ function MagazineItem({
   title: string
   description: string
   image: string
+  link: string
   isActive: boolean
   onHover: () => void
   isDesktop: boolean
@@ -57,46 +62,45 @@ function MagazineItem({
     }
   }
   return (
-    <a href="#">
-
-    <motion.div
-      className={
-        'relative h-[50vh] rounded-xl overflow-hidden group cursor-pointer'
-      }
-      initial='hidden'
-      animate={isActive ? 'visible' : 'hidden'}
-      variants={itemVariants}
-      onMouseEnter={onHover}
-      onMouseLeave={onHover}
-    >
-      <motion.img
-        src={image}
-        alt={title}
-        animate={{ scale: isActive ? 1.3 : 1 }}
-        transition={{ duration: isActive ? 5 : 0, ease: 'easeInOut' }}
-        className='-z-10 absolute w-full h-full object-cover'
-      />
-      <div
-        className={cn(
-          'transition-all duration-700 absolute w-full h-full -z-10',
-          isActive
-            ? 'bg-gradient-to-b from-primary/30 to-primary opacity-100'
-            : 'bg-gradient-to-b from-primary/30 to-transparent opacity-0'
-        )}
-      ></div>
-      <div className='flex flex-col h-full justify-end relative p-4'>
-        {isActive && (
-          <motion.div
-            initial='hidden'
-            animate='visible'
-            variants={textVariants}
-          >
-            <h2 className='text-4xl font-medium text-secondary'>{title}</h2>
-            <p className=' text-muted'>{description}</p>
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
+    <a target='_blank' href={link}>
+      <motion.div
+        className={
+          'relative h-[50vh] rounded-xl overflow-hidden group cursor-pointer'
+        }
+        initial='hidden'
+        animate={isActive ? 'visible' : 'hidden'}
+        variants={itemVariants}
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+      >
+        <motion.img
+          src={image}
+          alt={title}
+          animate={{ scale: isActive ? 1.3 : 1 }}
+          transition={{ duration: isActive ? 5 : 0, ease: 'easeInOut' }}
+          className='-z-10 absolute w-full h-full object-cover'
+        />
+        <div
+          className={cn(
+            'transition-all duration-700 absolute w-full h-full -z-10',
+            isActive
+              ? 'bg-gradient-to-b from-primary/30 to-primary opacity-100'
+              : 'bg-gradient-to-b from-primary/30 to-transparent opacity-0'
+          )}
+        ></div>
+        <div className='flex flex-col h-full justify-end relative p-4'>
+          {isActive && (
+            <motion.div
+              initial='hidden'
+              animate='visible'
+              variants={textVariants}
+            >
+              <h2 className='text-4xl font-medium text-secondary'>{title}</h2>
+              <p className=' text-muted'>{description}</p>
+            </motion.div>
+          )}
+        </div>
+      </motion.div>
     </a>
   )
 }
@@ -114,9 +118,7 @@ export default function Magazine() {
   }, [])
 
   return (
-    <SectionAnimation
-      id='magazines'
-    >
+    <SectionAnimation id='magazines'>
       <aside className='flex flex-col space-y-5 items-center w-full container'>
         <Tag content='Revistas' className='bg-muted' />
         <div className='flex items-center space-x-2'>
@@ -126,6 +128,7 @@ export default function Magazine() {
               title={magazine.title}
               description={magazine.description}
               image={magazine.image}
+              link={magazine.link}
               isActive={
                 index === (hoverIndex !== null ? hoverIndex : activeIndex)
               }
