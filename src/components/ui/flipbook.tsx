@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React, { useState, forwardRef } from 'react'
 import HTMLFlipBook from 'react-pageflip'
 import { Document, Page, pdfjs } from 'react-pdf'
@@ -11,7 +12,12 @@ interface PagesProps {
 
 const Pages = forwardRef<HTMLDivElement, PagesProps>(({ children, number }, ref) => {
   return (
-    <div className='demoPage bg-blue-100' ref={ref}>
+    <div className={cn(
+      //si las paginas no son la ultima ni la primera, enotnces entra una sombra en medio
+      'page',
+      number % 2 === 0 ? 'page-right' : 'page-left'
+      
+    )} ref={ref}>
       {children}
       <p>Page number: {number}</p>
     </div>
@@ -48,20 +54,20 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
           maxWidth={500}
           minHeight={100}
           maxHeight={500}
-          drawShadow={false}
+          drawShadow={true}
           flippingTime={1000}
           usePortrait={false}
           startZIndex={0}
           autoSize={false}
-          maxShadowOpacity={0}
-          showCover={false}
+          maxShadowOpacity={0.5}
+          showCover={true}
           mobileScrollSupport={false}
           clickEventForward={false}
           useMouseEvents={true}
-          swipeDistance={0}
-          showPageCorners={false}
+          swipeDistance={100}
+          showPageCorners={true}
           disableFlipByClick={false}
-          className=""
+          className="demo-book"
           style={{}}
           startPage={0}
         >

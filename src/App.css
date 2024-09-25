@@ -37,3 +37,24 @@
   }
 
 
+.page-left::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
+    z-index: 1;
+}
+
+.page-right::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0.3), transparent);
+    z-index: 1;
+}
