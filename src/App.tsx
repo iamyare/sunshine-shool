@@ -17,6 +17,7 @@ import { Reviews } from './components/reviews'
 import About from './components/about'
 import STEAM from './components/steam'
 import AcademicProgram from './components/academic-program'
+import Flipbook from './components/ui/flipbook'
 
 function Home() {
   const { t } = useLanguageContext()
@@ -31,6 +32,7 @@ function Home() {
       />
       <Reviews />
       <About />
+
       <SectionColums
         img='https://fuxlxocsolxkylxphywx.supabase.co/storage/v1/object/public/temp/sunshine/unas.jpeg'
         title={t('home.mission.title')}
@@ -78,7 +80,14 @@ function Home() {
 
       {/* <Blog /> */}
 
+    <section className=' w-screen h-screen overflow-hidden'>
+    <Flipbook pdfUrl='https://qsbvjgbhuemdbykiourv.supabase.co/storage/v1/object/public/revistas/ideas%20doc.pdf' />
+
+    </section>
+
       <Footer />
+
+
     </main>
   )
 }
