@@ -1,70 +1,88 @@
-import React, { useState } from 'react'
+import React, { useState, forwardRef } from 'react'
 import HTMLFlipBook from 'react-pageflip'
-import { pdfjs, Document, Page as ReactPdfPage } from 'react-pdf'
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import { Document, Page, pdfjs } from 'react-pdf'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.mjs`;
 
-interface PageProps {
-  pageNumber: number
+interface PagesProps {
+  children: React.ReactNode;
+  number: number;
 }
 
-const Page = React.forwardRef<HTMLDivElement, PageProps>(
-  ({ pageNumber }, ref) => {
-    return (
-      <div className='page' ref={ref}>
-        <ReactPdfPage pageNumber={pageNumber} width={300} />
-      </div>
-    )
-  }
-)
+const Pages = forwardRef<HTMLDivElement, PagesProps>(({ children, number }, ref) => {
+  return (
+    <div className='demoPage bg-blue-100' ref={ref}>
+      {children}
+      <p>Page number: {number}</p>
+    </div>
+  )
+})
 
-Page.displayName = 'Page'
+Pages.displayName = 'Pages'
 
-export default function Flipbook({ pdfUrl }: { pdfUrl: string }) {
-  const [numPages, setNumPages] = useState<number | null>(null)
-  const [pageNumbers, setPageNumbers] = useState<number[]>([])
+interface FlipbookProps {
+  pdfUrl: string;
+}
+
+export default function Flipbook({ pdfUrl }: FlipbookProps) {
+  const [numPages, setNumPages] = useState<number>(0)
+  const [pdfLoaded, setPdfLoaded] = useState<boolean>(false)
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
+    console.log('numPages', numPages)
     setNumPages(numPages)
-    setPageNumbers(Array.from(new Array(numPages), (_, index) => index + 1))
+    setPdfLoaded(true)
   }
 
   return (
-      <>
+    <div className='h-screen w-screen flex flex-col gap-5 justify-center items-center bg-gray-900 overflow-hidden'>
+      <h1 className='text-3xl text-white text-center font-bold'>FlipBook</h1>
+      
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
+      {pdfLoaded ? (
         <HTMLFlipBook
-width={300} 
-height={500}
+          width={400}
+          height={570}
           size='fixed'
-          minWidth={300}
-          maxWidth={1000}
-          minHeight={400}
-          maxHeight={1533}
-          maxShadowOpacity={0.3}
-          showCover={true}
-          mobileScrollSupport={true}
-          className='demo-book'
-          style={{}}
-          startPage={0}
-          drawShadow={true}
+          minWidth={100}
+          maxWidth={500}
+          minHeight={100}
+          maxHeight={500}
+          drawShadow={false}
           flippingTime={1000}
           usePortrait={false}
           startZIndex={0}
-          autoSize={true}
-          clickEventForward={true}
+          autoSize={false}
+          maxShadowOpacity={0}
+          showCover={false}
+          mobileScrollSupport={false}
+          clickEventForward={false}
           useMouseEvents={true}
-          swipeDistance={5000}
-          showPageCorners={true}
+          swipeDistance={0}
+          showPageCorners={false}
           disableFlipByClick={false}
+          className=""
+          style={{}}
+          startPage={0}
         >
-          {pageNumbers.map((pageNumber) => (
-            <Page key={pageNumber} pageNumber={pageNumber} />
+          {[...Array(numPages)].map((_, index) => (
+            <Pages key={index} number={index + 1}>
+              <Page
+                pageNumber={index + 1}
+                width={400}
+                renderAnnotationLayer={false}
+                renderTextLayer={false}
+              />
+              <p>
+                Page {index + 1} of {numPages}
+              </p>
+            </Pages>
           ))}
         </HTMLFlipBook>
+      ) : (
+        <div className='text-white'>Loading PDF...</div>
+      )}
       </Document>
-
-    </>
+    </div>
   )
 }
