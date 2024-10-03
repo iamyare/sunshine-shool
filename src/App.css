@@ -49,11 +49,11 @@
   .page-right {
     background: #ffffff; /* Color de fondo base para la página */
   
-  
+
   .page-right-highlight {
     position: absolute;
     width: 55%;
-    height: 99%;
+    height: 100%;
     right: 0;
     top: 0;
     background: linear-gradient(244.92deg, rgba(255, 255, 255, 0.3) 8.53%, rgba(255, 255, 255, 0) 67.62%);
@@ -72,7 +72,7 @@
   .page-right-shadow {
     position: absolute;
     width: 50%;
-    height: 99%;
+    height: 100%;
     left: 0;
     top: 0;
     background: linear-gradient(75.35deg, #102437 5.14%, rgba(77, 88, 99, 0) 52.19%);
@@ -82,7 +82,7 @@
   .page-right-binding {
     position: absolute;
     width: 15px;
-    height: 99%;
+    height: 100%;
     left: 0;
     top: 0;
     background: linear-gradient(90deg, #0A1128 0%, rgba(13, 25, 68, 0.25) 51.52%, rgba(13, 25, 68, 0) 100%);
@@ -97,7 +97,7 @@
   .page-left-highlight {
     position: absolute;
     width: 55%;
-    height: 99%;
+    height: 100%;
     right: 0;
     top: 0;
     background: linear-gradient(255.76deg, rgba(255, 255, 255, 0.3) 8.82%, rgba(255, 255, 255, 0) 89.88%);
@@ -107,7 +107,7 @@
   .page-left-binding {
     position: absolute;
     width: 15px;
-    height: 99%;
+    height: 100%;
     right: 0;
     top: 0;
     background: linear-gradient(90deg, #1F1F1F 0%, rgba(196, 196, 196, 0) 100%);
@@ -118,7 +118,7 @@
   .page-left-shadow {
     position: absolute;
     width: 50%;
-    height: 99%;
+    height: 100%;
     left: 0;
     top: 0;
     background: linear-gradient(70.16deg, #122B43 4.17%, rgba(13, 38, 63, 0) 44.9%);
@@ -129,7 +129,7 @@
   .center-line {
     position: absolute;
     width: 1px;
-    height: 99%;
+    height: 100%;
     left: 0px;
     top: 0px;
     mix-blend-mode: color-burn;
@@ -138,62 +138,10 @@
   }
 
 
-  .bottom-shadows {
-    position: absolute;
-    width: 908px;
-    height: 181px;
-    left: 18px;
-    bottom: 0;
-    opacity: 0.5;
+  .shadow-realistic{
+    box-shadow:  20px 20px 60px rgba(23, 23, 23, 0.5),
+             -20px -20px 60px #ffffff !important;
   }
+
+
   
-  .bottom-left-secondary-shadow {
-    position: absolute;
-    width: 607px;
-    height: 68px;
-    left: calc(50% - 607px/2 + 159.5px);
-    bottom: 0;
-    background: radial-gradient(50% 50% at 50.07% 50%, #1F2228 0%, rgba(34, 37, 45, 0.338931) 56.21%, rgba(35, 39, 47, 0.05) 81.73%, rgba(36, 39, 48, 0) 100%);
-    opacity: 0.25;
-  }
-  
-  .bottom-right-secondary-shadow {
-    position: absolute;
-    width: 653px;
-    height: 62px;
-    left: calc(50% - 653px/2 - 118.5px);
-    bottom: 0;
-    background: radial-gradient(37.5% 37.5% at 50% 0%, #1F2228 0%, rgba(34, 37, 45, 0.338931) 56.21%, rgba(35, 39, 47, 0.05) 81.73%, rgba(36, 39, 48, 0) 100%);
-    opacity: 0.25;
-  }
-  
-  .bottom-right-main-shadow {
-    position: absolute;
-    width: 524px;
-    height: 181px;
-    left: calc(50% - 524px/2 + 103px);
-    bottom: 0;
-    background: radial-gradient(49.4% 49.4% at 50% 50.6%, #212528 0%, rgba(250, 250, 250, 0) 100%);
-    opacity: 0.4;
-  }
-  
-  .bottom-left-main-shadow {
-    position: absolute;
-    width: 516px;
-    height: 115px;
-    left: calc(50% - 516px/2 - 98px);
-    bottom: 0;
-    background: radial-gradient(49.4% 49.4% at 50% 50.6%, #212528 0%, rgba(250, 250, 250, 0) 100%);
-    opacity: 0.2;
-  }
-  
-  .bottom-wide-shadow {
-    position: absolute;
-    width: 797px;
-    height: 6px;
-    left: calc(50% - 797px/2);
-    bottom: 0;
-    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 49.96%, #000000 100%);
-    opacity: 0.5;
-    filter: blur(1px);
-  }

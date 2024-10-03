@@ -18,8 +18,8 @@ const Pages = forwardRef<HTMLDivElement, PagesProps>(
       <div
         className={cn(
           'page',
-          number === 1 && 'page-cover',
-          isLeftPage ? 'page-left' : 'page-right'
+          number === 1 && 'page-cover rounded-lg shadow-realistic',
+          isLeftPage ? 'page-left shadow-xl' : 'page-right shadow-xl'
         )}
         ref={ref}
       >
@@ -73,6 +73,7 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
     <section className=' h-full w-full flex justify-center items-center overflow-hidden'>
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
         {pdfLoaded ? (
+<aside className=' flex flex-col gap-5'>
           <HTMLFlipBook
             width={400}
             height={570}
@@ -106,12 +107,30 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
                 <Page
                   pageNumber={index + 1}
                   width={400}
+                  height={570}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
+                  className={'!h-full'}
                 />
               </Pages>
             ))}
           </HTMLFlipBook>
+
+          <div className=' flex justify-between  w-full'>
+            <button
+
+            >
+              Retroceder
+            </button>
+            <div>
+            Navigation bars
+            </div>
+            <button
+            >
+              Avanzar
+            </button>
+          </div>
+</aside>
         ) : (
           <div className='text-white'>Loading PDF...</div>
         )}
