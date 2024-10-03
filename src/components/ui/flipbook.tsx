@@ -27,7 +27,7 @@ const aspectRatios = {
   Letter: 8.5 / 11 // Width to height ratio for Letter
 }
 
-export default function Flipbook({ pdfUrl, reductionPercentage = 20, pageFormat = 'A4' }: FlipbookProps) {
+export default function Flipbook({ pdfUrl, reductionPercentage = 15, pageFormat = 'A4' }: FlipbookProps) {
   const [numPages, setNumPages] = useState<number>(0)
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [pdfLoaded, setPdfLoaded] = useState<boolean>(false)
