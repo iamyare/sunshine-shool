@@ -26,13 +26,16 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
   }
 
   useEffect(() => {
-    const book = document.querySelector('.demo-book')
+    const book = document.querySelector('.demo-book');
     if (currentPage === 0) {
-      book?.classList.add('!-translate-x-[200px]')
-    } else {
-      book?.classList.remove('!-translate-x-[200px]')
+      book?.classList.add('!-translate-x-[200px]');
+    } else if (currentPage === numPages - 1) {
+      book?.classList.add('!translate-x-[200px]');
+    }else {
+      book?.classList.remove('!-translate-x-[200px]');
+      book?.classList.remove('!translate-x-[200px]');
     }
-  }, [currentPage])
+  }, [currentPage, numPages]);
 
   useEffect(() => {
     setSliderValue(currentPage + 1)
@@ -57,7 +60,6 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
 
   const handleSliderCommit = (value: number) => {
     setShowThumbnail(false)
-    console.log('Slider commit:', value)
     handlePageChange(value - 1)
   }
 
