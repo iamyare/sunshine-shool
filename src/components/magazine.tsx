@@ -12,7 +12,7 @@ const MAGAZINES = [
       'En nuestra revista podrás encontrar artículos interesantes sobre educación, innovación y mucho más. ¡No te la pierdas!',
     image:
       'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain',
-    link: 'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
+    link: '/magazine/1122019d-b4fe-4deb-bb65-5545c9269846'
   },
   {
     title: 'Revista 2',
@@ -20,7 +20,7 @@ const MAGAZINES = [
       'En nuestra revista podrás encontrar artículos interesantes sobre educación, innovación y mucho más. ¡No te la pierdas!',
     image:
       'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain',
-    link: 'https://th.bing.com/th/id/OLC.PF2jVEnBEUYiLA480x360?&rs=1&pid=ImgDetMain'
+    link: '/magazine/aacbc0c9-bea5-4e87-8235-3a1ee4f63d15'
   },
   {
     title: 'Revista 3',

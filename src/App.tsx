@@ -6,8 +6,8 @@ import FlipbookPage from './pages/Flipbooks'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home/>} />
-      <Route path='/magazine' element={<FlipbookPage/>} />
+      <Route path='/' element={<Home />} />
+      <Route path='/magazine/:id' element={<FlipbookPage />} />
     </Routes>
   )
 }
