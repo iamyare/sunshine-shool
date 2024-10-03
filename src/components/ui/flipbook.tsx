@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef, useEffect } from 'react'
 import HTMLFlipBook from 'react-pageflip'
 import { Document, Page, pdfjs } from 'react-pdf'
 
@@ -12,18 +12,33 @@ interface PagesProps {
 
 const Pages = forwardRef<HTMLDivElement, PagesProps>(
   ({ children, number }, ref) => {
+    const isLeftPage = number % 2 !== 0
 
     return (
       <div
         className={cn(
           'page',
           number === 1 && 'page-cover',
-          number % 2 === 0 ? 'page-right' : 'page-left'
+          isLeftPage ? 'page-left' : 'page-right'
         )}
         ref={ref}
       >
         {children}
-        <p>Page number: {number}</p>
+        {isLeftPage ? (
+          <>
+            <div className='page-right-highlight' />
+            <div className='page-right-top-shadow' />
+            <div className='page-right-shadow' />
+            <div className='page-right-binding' />
+          </>
+        ) : (
+          <>
+            <div className='page-left-highlight' />
+            <div className='page-left-binding' />
+            <div className='page-left-shadow' />
+            <div className='center-line' />
+          </>
+        )}
       </div>
     )
   }
@@ -37,6 +52,7 @@ interface FlipbookProps {
 
 export default function Flipbook({ pdfUrl }: FlipbookProps) {
   const [numPages, setNumPages] = useState<number>(0)
+  const [currentPage, setCurrentPage] = useState<number>(0)
   const [pdfLoaded, setPdfLoaded] = useState<boolean>(false)
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
@@ -44,10 +60,17 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
     setPdfLoaded(true)
   }
 
-  return (
-    <div className='h-screen w-screen flex flex-col gap-5 justify-center items-center bg-gray-900 overflow-hidden'>
-      <h1 className='text-3xl text-white text-center font-bold'>FlipBook</h1>
+  useEffect(() => {
+    const book = document.querySelector('.demo-book')
+    if (currentPage === 0) {
+      book?.classList.add('!-translate-x-[200px]')
+    } else {
+      book?.classList.remove('!-translate-x-[200px]')
+    }
+  }, [currentPage])
 
+  return (
+    <section className=' h-full w-full flex justify-center items-center overflow-hidden'>
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
         {pdfLoaded ? (
           <HTMLFlipBook
@@ -63,7 +86,7 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
             usePortrait={false}
             startZIndex={0}
             autoSize={false}
-            maxShadowOpacity={0.5}
+            maxShadowOpacity={0.3}
             showCover={true}
             mobileScrollSupport={false}
             clickEventForward={false}
@@ -71,9 +94,12 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
             swipeDistance={100}
             showPageCorners={true}
             disableFlipByClick={false}
-            className='demo-book'
+            className='demo-book transition-transform duration-500 ease-in-out !-translate-x-[200px]'
             style={{}}
             startPage={0}
+            onFlip={(e) => {
+              setCurrentPage(e.data)
+            }}
           >
             {[...Array(numPages)].map((_, index) => (
               <Pages key={index} number={index + 1}>
@@ -83,9 +109,6 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
                 />
-                <p>
-                  Page {index + 1} of {numPages}
-                </p>
               </Pages>
             ))}
           </HTMLFlipBook>
@@ -93,6 +116,6 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
           <div className='text-white'>Loading PDF...</div>
         )}
       </Document>
-    </div>
+    </section>
   )
 }
