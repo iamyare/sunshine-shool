@@ -1,7 +1,9 @@
 import { cn } from '@/lib/utils'
-import React, { useState, forwardRef, useEffect } from 'react'
+import React, { useState, forwardRef, useEffect, useRef } from 'react'
 import HTMLFlipBook from 'react-pageflip'
 import { Document, Page, pdfjs } from 'react-pdf'
+import { Button } from './button'
+import { Input } from './input'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.mjs`
 
@@ -54,6 +56,7 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
   const [numPages, setNumPages] = useState<number>(0)
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [pdfLoaded, setPdfLoaded] = useState<boolean>(false)
+  const bookRef = useRef<any>(null)
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages)
@@ -69,68 +72,101 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
     }
   }, [currentPage])
 
+  const handlePrevPage = () => {
+    if (bookRef.current && currentPage > 0) {
+      bookRef.current.pageFlip().flipPrev()
+    }
+  }
+
+  const handleNextPage = () => {
+    if (bookRef.current && currentPage < numPages - 1) {
+      bookRef.current.pageFlip().flipNext()
+    }
+  }
+
+  const handlePageChange = (page: number) => {
+    if (bookRef.current) {
+      bookRef.current.pageFlip().flip(page)
+    }
+  }
+
   return (
-    <section className=' h-full w-full flex justify-center items-center overflow-hidden'>
+    <section className='h-full w-full flex justify-center items-center overflow-hidden'>
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
         {pdfLoaded ? (
-<aside className=' flex flex-col gap-5'>
-          <HTMLFlipBook
-            width={400}
-            height={570}
-            size='fixed'
-            minWidth={100}
-            maxWidth={500}
-            minHeight={100}
-            maxHeight={500}
-            drawShadow={true}
-            flippingTime={1000}
-            usePortrait={false}
-            startZIndex={0}
-            autoSize={false}
-            maxShadowOpacity={0.3}
-            showCover={true}
-            mobileScrollSupport={false}
-            clickEventForward={false}
-            useMouseEvents={true}
-            swipeDistance={100}
-            showPageCorners={true}
-            disableFlipByClick={false}
-            className='demo-book transition-transform duration-500 ease-in-out !-translate-x-[200px]'
-            style={{}}
-            startPage={0}
-            onFlip={(e) => {
-              setCurrentPage(e.data)
-            }}
-          >
-            {[...Array(numPages)].map((_, index) => (
-              <Pages key={index} number={index + 1}>
-                <Page
-                  pageNumber={index + 1}
-                  width={400}
-                  height={570}
-                  renderAnnotationLayer={false}
-                  renderTextLayer={false}
-                  className={'!h-full'}
+          <aside className='flex flex-col gap-5'>
+            <HTMLFlipBook
+              width={400}
+              height={570}
+              size='fixed'
+              minWidth={100}
+              maxWidth={500}
+              minHeight={100}
+              maxHeight={500}
+              drawShadow={true}
+              flippingTime={1000}
+              usePortrait={false}
+              startZIndex={0}
+              autoSize={false}
+              maxShadowOpacity={0.3}
+              showCover={true}
+              mobileScrollSupport={false}
+              clickEventForward={false}
+              useMouseEvents={true}
+              swipeDistance={100}
+              showPageCorners={true}
+              disableFlipByClick={false}
+              className='demo-book transition-transform duration-500 ease-in-out !-translate-x-[200px]'
+              style={{}}
+              startPage={0}
+              onFlip={(e) => {
+                setCurrentPage(e.data)
+              }}
+              ref={bookRef}
+            >
+              {[...Array(numPages)].map((_, index) => (
+                <Pages key={index} number={index + 1}>
+                  <Page
+                    pageNumber={index + 1}
+                    width={400}
+                    height={570}
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                    className={'!h-full'}
+                  />
+                </Pages>
+              ))}
+            </HTMLFlipBook>
+
+            <div className='flex justify-between w-full'>
+              <Button
+                onClick={handlePrevPage}
+                disabled={currentPage === 0}
+                
+              >
+                Retroceder
+              </Button>
+              <div className='flex items-center'>
+                <Input
+                  type='number'
+                  min={1}
+                  max={numPages}
+                  value={currentPage + 1}
+                  onChange={(e) => handlePageChange(Number(e.target.value) - 1)}
                 />
-              </Pages>
-            ))}
-          </HTMLFlipBook>
+                <span className='mx-2'>de {numPages}</span>
+              </div>
 
-          <div className=' flex justify-between  w-full'>
-            <button
-
-            >
-              Retroceder
-            </button>
-            <div>
-            Navigation bars
+              
+              <Button
+                onClick={handleNextPage}
+                disabled={currentPage === numPages - 1}
+                
+              >
+                Avanzar
+              </Button>
             </div>
-            <button
-            >
-              Avanzar
-            </button>
-          </div>
-</aside>
+          </aside>
         ) : (
           <div className='text-white'>Loading PDF...</div>
         )}
