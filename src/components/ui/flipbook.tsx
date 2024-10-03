@@ -9,15 +9,36 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 interface FlipbookProps {
   pdfUrl: string
+  reductionPercentage?: number
+  pageFormat?: 'A4' | 'Letter'
 }
 
-export default function Flipbook({ pdfUrl }: FlipbookProps) {
+interface BookInfo {
+  dimensions: {
+    width: number
+    height: number
+  }
+  format: 'A4' | 'Letter'
+  aspectRatio: number
+}
+
+const aspectRatios = {
+  A4: 1 / 1.4142, // Width to height ratio for A4
+  Letter: 8.5 / 11 // Width to height ratio for Letter
+}
+
+export default function Flipbook({ pdfUrl, reductionPercentage = 20, pageFormat = 'A4' }: FlipbookProps) {
   const [numPages, setNumPages] = useState<number>(0)
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [pdfLoaded, setPdfLoaded] = useState<boolean>(false)
   const [showThumbnail, setShowThumbnail] = useState<boolean>(false)
   const [thumbnailPages, setThumbnailPages] = useState<number[]>([1, 2])
   const [sliderValue, setSliderValue] = useState<number>(1)
+  const [bookInfo, setBookInfo] = useState<BookInfo>({
+    dimensions: { width: 400, height: 570 },
+    format: pageFormat,
+    aspectRatio: aspectRatios[pageFormat]
+  })
   const bookRef = useRef<any>(null)
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
@@ -26,12 +47,52 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
   }
 
   useEffect(() => {
+    const updateBookSize = () => {
+      const windowWidth = window.innerWidth
+      const windowHeight = window.innerHeight
+      const reductionFactor = 1 - (reductionPercentage / 100)
+      const aspectRatio = aspectRatios[pageFormat]
+
+      // Calculate dimensions for full window width and height
+      const widthBasedHeight = windowWidth * reductionFactor / aspectRatio / 2
+      const heightBasedWidth = windowHeight * reductionFactor * aspectRatio * 2
+
+      let newWidth, newHeight
+
+      if (widthBasedHeight <= windowHeight * reductionFactor) {
+        // Use full width
+        newWidth = windowWidth * reductionFactor / 2
+        newHeight = widthBasedHeight
+      } else {
+        // Use full height
+        newHeight = windowHeight * reductionFactor
+        newWidth = heightBasedWidth / 2
+      }
+
+      setBookInfo(prevInfo => ({
+        ...prevInfo,
+        dimensions: {
+          width: Math.floor(newWidth),
+          height: Math.floor(newHeight)
+        },
+        format: pageFormat,
+        aspectRatio: aspectRatio
+      }))
+    }
+
+    updateBookSize()
+    window.addEventListener('resize', updateBookSize)
+
+    return () => window.removeEventListener('resize', updateBookSize)
+  }, [reductionPercentage, pageFormat])
+
+  useEffect(() => {
     const book = document.querySelector('.demo-book');
     if (currentPage === 0) {
       book?.classList.add('!-translate-x-[200px]');
     } else if (currentPage === numPages - 1) {
       book?.classList.add('!translate-x-[200px]');
-    }else {
+    } else {
       book?.classList.remove('!-translate-x-[200px]');
       book?.classList.remove('!translate-x-[200px]');
     }
@@ -69,13 +130,13 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
         {pdfLoaded ? (
           <aside className='flex flex-col gap-5 relative'>
             <HTMLFlipBook
-              width={400}
-              height={570}
+              width={bookInfo.dimensions.width}
+              height={bookInfo.dimensions.height}
               size='fixed'
               minWidth={100}
-              maxWidth={500}
+              maxWidth={bookInfo.dimensions.width * 2}
               minHeight={100}
-              maxHeight={500}
+              maxHeight={bookInfo.dimensions.height}
               drawShadow={true}
               flippingTime={1000}
               usePortrait={false}
@@ -96,7 +157,7 @@ export default function Flipbook({ pdfUrl }: FlipbookProps) {
               ref={bookRef}
             >
               {[...Array(numPages)].map((_, index) => (
-                <FlipbookPage key={index} number={index + 1} />
+                <FlipbookPage key={index} number={index + 1} bookInfo={bookInfo} />
               ))}
             </HTMLFlipBook>
 

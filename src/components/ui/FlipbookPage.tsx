@@ -2,12 +2,22 @@ import React, { forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 import { Page } from 'react-pdf'
 
+interface BookInfo {
+  dimensions: {
+    width: number
+    height: number
+  }
+  format: 'A4' | 'Letter'
+  aspectRatio: number
+}
+
 interface FlipbookPageProps {
   number: number
+  bookInfo: BookInfo
 }
 
 export const FlipbookPage = forwardRef<HTMLDivElement, FlipbookPageProps>(
-  ({ number }, ref) => {
+  ({ number, bookInfo }, ref) => {
     const isLeftPage = number % 2 !== 0
 
     return (
@@ -21,8 +31,8 @@ export const FlipbookPage = forwardRef<HTMLDivElement, FlipbookPageProps>(
       >
         <Page
           pageNumber={number}
-          width={400}
-          height={570}
+          width={bookInfo.dimensions.width}
+          height={bookInfo.dimensions.height}
           renderAnnotationLayer={false}
           renderTextLayer={false}
           className={'!h-full'}
